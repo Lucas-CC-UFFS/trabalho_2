@@ -1,0 +1,44 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="pfKXl4P_UqSdcH_WyVWA">
+    <mxGraphModel dx="1911" dy="2238" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Id_M44g03FQimkMb4RDI-2" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Hospedes&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- String Nome&lt;br&gt;- Int Idade&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- String/Int CPF&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getNome()&lt;br&gt;+ getIdade()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getCPF()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+setNome()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+setIdade()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+setCPF()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="180" width="190" x="90" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="Id_M44g03FQimkMb4RDI-3" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Acomodacao interface / extend&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- int Codigo&lt;br&gt;- capacidadeMax&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- valorDiaria&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ infoAcomodacao()&lt;br&gt;+ calculaDiaria()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="130" width="180" x="331" y="-10" as="geometry" />
+        </mxCell>
+        <mxCell id="Id_M44g03FQimkMb4RDI-4" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Quarto_Padrao&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- int Codigo&lt;br&gt;- capacidadeMax&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- valorDiaria&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ infoAcomodacao()&lt;br&gt;+ calculaDiaria()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="190" x="106" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="Id_M44g03FQimkMb4RDI-5" edge="1" parent="1" source="Id_M44g03FQimkMb4RDI-4" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="Id_M44g03FQimkMb4RDI-3" value="">
+          <mxGeometry relative="1" width="60" as="geometry">
+            <mxPoint x="196" y="240" as="sourcePoint" />
+            <mxPoint x="256" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id_M44g03FQimkMb4RDI-6" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Chalé&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- int Codigo&lt;br&gt;- capacidadeMax&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- valorDiaria&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ infoAcomodacao()&lt;br&gt;+ calculaDiaria()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="190" x="326" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="Id_M44g03FQimkMb4RDI-7" edge="1" parent="1" source="Id_M44g03FQimkMb4RDI-6" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="Id_M44g03FQimkMb4RDI-3" value="">
+          <mxGeometry relative="1" width="60" as="geometry">
+            <mxPoint x="426" y="270" as="sourcePoint" />
+            <mxPoint x="346" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id_M44g03FQimkMb4RDI-8" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Suite_Premim&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- int Codigo&lt;br&gt;- capacidadeMax&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- valorDiaria&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ infoAcomodacao()&lt;br&gt;+ calculaDiaria()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="190" x="566" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="Id_M44g03FQimkMb4RDI-9" edge="1" parent="1" source="Id_M44g03FQimkMb4RDI-8" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="Id_M44g03FQimkMb4RDI-3" value="">
+          <mxGeometry relative="1" width="60" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="693" y="160" as="sourcePoint" />
+            <mxPoint x="688" y="-20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
