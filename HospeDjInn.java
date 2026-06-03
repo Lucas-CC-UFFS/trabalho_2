@@ -1,6 +1,6 @@
 public class HospeDjInn {
     public static void main(String[] args) {
-        Quarto_Padrao q1 = new Quarto_Padrao();
+        QuartoPadrao q1 = new QuartoPadrao();
         
         //set
         q1.setCodigo(123);

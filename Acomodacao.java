@@ -8,12 +8,12 @@ public abstract class Acomodacao {
     public abstract double calculaDiaria(int quant_dias);
 
     // GETTERS
-    public abstract int getCodigo();
-    public abstract int getCapacidadeMax();
-    public abstract double getValorDiaria();
+    public int getCodigo() {return this.codigo;}
+    public int getCapacidadeMax(){return this.capacidadeMax;}
+    public double getValorDiaria(){return this.valorDiaria;}
 
     // SETTERS
-    public abstract void setCodigo(int codigo);
-    public abstract void setCapacidadeMax(int capacidade);
-    public abstract void setValorDiaria(double valor);
+    public void setCodigo(int codigo) {this.codigo = codigo;}
+    public void setCapacidadeMax(int capacidade) {this.capacidadeMax = capacidade;}
+    public void setValorDiaria(double valor){this.valorDiaria = valor;}
 }
