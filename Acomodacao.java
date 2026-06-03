@@ -1,5 +1,5 @@
 public abstract class Acomodacao {
-    private int codigo;
+    private int codigo; // 1 - Suite Premium | 2 - Chalé | 3 - Quarto Padrão
     private int capacidadeMax;
     private double valorDiaria;
     

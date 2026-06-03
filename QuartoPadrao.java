@@ -1,4 +1,10 @@
 public class QuartoPadrao extends Acomodacao{
+    //CONSTUTOR
+    public QuartoPadrao(){
+        setCapacidadeMax(2);
+        setValorDiaria(150);
+    }
+
     //METODOS
     @Override
     public void infoAcomodacao(){

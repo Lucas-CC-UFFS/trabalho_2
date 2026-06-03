@@ -1,4 +1,9 @@
 public class Chale extends Acomodacao{
+    //CONSTRUTOR
+    public Chale(){
+        setCapacidadeMax(5);
+        setValorDiaria(300);
+    }
 
     //METODOS
     @Override
@@ -17,7 +22,7 @@ public class Chale extends Acomodacao{
     // SETTERS
     @Override
     public void setCodigo(int codigo){
-        String quarto = "3" + codigo;
+        String quarto = "2" + codigo;
         int numCodigo = Integer.parseInt(quarto);
         super.setCodigo(numCodigo);
     }
