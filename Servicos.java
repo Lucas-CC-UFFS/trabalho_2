@@ -14,7 +14,7 @@ public abstract class Servicos {
         this.descricaoServico = descricaoServico;
     }
 
-    public int getDescricaoServico(){
+    public String getDescricaoServico(){
         return descricaoServico;
     }
 
