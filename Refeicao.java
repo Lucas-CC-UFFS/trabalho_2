@@ -1,32 +1,26 @@
-import java.util.Scanner;
-
 public class Refeicao extends Servicos {
-    private int codigoRefeicao[] = {1, 2, 3}; //1: café; 2: almoço; 3: janta
+    private double precoRefeicao;
 
-    public void setCodigoRefeicao(int codigoRefeicao){
-        this.codigoPasseio[0] = codigoRefeicao;
+    public void setPrecoRefeicao(double precoRefeicao){
+        this.precoRefeicao = precoRefeicao;
     }
 
-    public int getCodigoRefeicao(){
-        return codigoRefeicao;
+    public double getPrecoRefeicao(){
+        return precoRefeicao;
     }
 
-    public Refeicao(){
-        Scanner sc = new Scanner();
+    public Refeicao(int codigoRefeicao, String descricaoRefeicao, double precoRefeicao){
+        super(codigoRefeicao, descricaoRefeicao);
+        this.precoRefeicao = precoRefeicao;
     }
 
+    @Override
     public double calculaValorServico(){
-        int valor = 0;
-        if(codigoRefeicao == 1){
-            valor += 30;
-        }
-        if(codigoRefeicao == 2){
-
-        }
-        return valor;
+        return precoRefeicao;
     }
 
+    @Override
     public String infoServico(){
-        return "";
+        return getCodigoServico() + "- Diária com 3 refeições inclusas. Café da manhã, almoço e janta pelo valor de  R$" + precoRefeicao + "!";
     }
 }

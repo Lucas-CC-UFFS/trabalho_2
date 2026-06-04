@@ -18,7 +18,11 @@ public abstract class Servicos {
         return descricaoServico;
     }
 
-    public abstract double calculaValorServico();
+    public Servico(int codigoServico, String descricaoServico){
+        this.codigoServico = codigoServico;
+        this.descricaoServico = descricaoServico;
+    }
 
+    public abstract double calculaValorServico();
     public abstract String infoServico();
 }
