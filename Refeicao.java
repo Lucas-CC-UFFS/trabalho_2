@@ -20,7 +20,7 @@ public class Refeicao extends Servicos {
     }
 
     @Override
-    public String infoServico(){
+    public String exibirInformacoes(){
         return getCodigoServico() + "- Diária com 3 refeições inclusas. Café da manhã, almoço e janta pelo valor de  R$" + precoRefeicao + "!";
     }
 }

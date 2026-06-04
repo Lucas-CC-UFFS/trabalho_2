@@ -30,7 +30,7 @@ public class Academia extends Servicos {
     }
 
     @Override
-    public String infoServico(){
+    public String exibirInformacoes(){
         return "Academia completa e ambiente amplo para se manter ativo por R$" + precoAcademia + " por dia!";
     }
 }

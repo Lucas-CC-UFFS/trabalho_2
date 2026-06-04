@@ -1,4 +1,4 @@
-public abstract class Servicos {
+public abstract class Servicos implements HospeDjInn {
     private int codigoServico;
     private String descricaoServico;
 
@@ -24,5 +24,4 @@ public abstract class Servicos {
     }
 
     public abstract double calculaValorServico();
-    public abstract String infoServico();
 }

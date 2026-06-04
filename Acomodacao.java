@@ -1,11 +1,11 @@
-public abstract class Acomodacao {
+public abstract class Acomodacao implements HospeDjInn{
     //ATRIBUTOS
     private int codigo; // 1 - Suite Premium | 2 - Chalé | 3 - Quarto Padrão
     private int capacidadeMax;
     private double valorDiaria;
     
     //METODOS
-    public abstract void infoAcomodacao();    
+    public abstract void infoAcomodacao();
     public abstract double calculaDiaria(int quant_dias);
 
     // GETTERS

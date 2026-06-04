@@ -1,4 +1,4 @@
-public class Hospedes {
+public class Hospedes implements HospeDjInn{
     private String Nome;
     private int Idade;
     private String CPF;
@@ -12,4 +12,9 @@ public class Hospedes {
     public void setNome(String nome) {this.Nome = nome;}
     public void setIdade(int idade) {this.Idade = idade;} 
     public void setCPF(String cpf) {this.CPF = cpf;}
+
+    @Override
+    public String exibirInformacoes(){
+        //
+    }
 }
