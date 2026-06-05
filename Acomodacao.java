@@ -6,7 +6,7 @@ public abstract class Acomodacao implements HospeDjInn{
     
     //METODOS
     public abstract double calculaDiaria(int quant_dias);
-    public abstract String exibirInformacoes();
+    public abstract void exibirInformacoes();
 
     // GETTERS
     public int getCodigo() {return this.codigo;}

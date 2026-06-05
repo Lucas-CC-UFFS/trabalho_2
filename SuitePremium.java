@@ -7,7 +7,7 @@ public class SuitePremium extends Acomodacao{
 
     //METODOS
     @Override
-    public void infoAcomodacao(){
+    public void exibirInformacoes(){
         System.out.println("Código: " + getCodigo());
         System.out.println("Capacidade Máxima: " + getCapacidadeMax());
         System.out.println("Valor da Diária: " + getValorDiaria());
@@ -19,12 +19,6 @@ public class SuitePremium extends Acomodacao{
         double taxaLimpeza = 15.99;
         return (quant_dias * getValorDiaria()) + (taxaAquecimento * quant_dias) + taxaLimpeza;
     }
-
-    @Override
-    public String exibirInformacoes(){
-        return "ok";
-    }
-
 
     // SETTERS
     @Override

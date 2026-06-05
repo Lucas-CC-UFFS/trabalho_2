@@ -7,7 +7,7 @@ public class QuartoPadrao extends Acomodacao{
 
     //METODOS
     @Override
-    public void infoAcomodacao(){
+    public void exibirInformacoes(){
         System.out.println("Código: " + getCodigo());
         System.out.println("Capacidade Máxima: " + getCapacidadeMax());
         System.out.println("Valor da Diária: " + getValorDiaria());
@@ -16,12 +16,6 @@ public class QuartoPadrao extends Acomodacao{
     public double calculaDiaria(int quant_dias){
         return quant_dias * getValorDiaria();
     }
-
-    @Override
-    public String exibirInformacoes(){
-        return "ok";
-    }
-
 
     // SETTERS
     @Override
