@@ -45,10 +45,10 @@ public class Pousada {
         acomodacoes.add(a);
     }
 
+    //CARREGAR
     public void carregarDados(String arquivo){
         try {
-            BufferedReader br =
-                new BufferedReader(new FileReader(arquivo));
+            BufferedReader br = new BufferedReader(new FileReader(arquivo));
             String linha;
             while((linha = br.readLine()) != null) {
                 String[] dados = linha.split(";");
@@ -63,7 +63,7 @@ public class Pousada {
 
                 else if(dados[0].equals("SUITE")) {
                     acomodacoes.add(
-                        new SuiteLuxo(Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Double.parseDouble(dados[3]), Double.parseDouble(dados[4])));
+                        new SuitePremium(Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Double.parseDouble(dados[3]), Double.parseDouble(dados[4])));
                 }
 
                 else if(dados[0].equals("REFEICAO")) {
@@ -71,37 +71,101 @@ public class Pousada {
                 }
 
                 else if(dados[0].equals("PASSEIO")) {
-                    servicos.add(new PasseioGrupo(Integer.parseInt(dados[1]), dados[2], Double.parseDouble(dados[3]), Integer.parseInt(dados[4])));                    
+                    servicos.add(new Passeio(Integer.parseInt(dados[1]), dados[2], Double.parseDouble(dados[3]), Integer.parseInt(dados[4])));                    
                 }
 
-                else if(dados[0].equals("LAVANDERIA")) {
-                    servicos.add(new Lavanderia(Integer.parseInt(dados[1]), dados[2], Integer.parseInt(dados[3]), Double.parseDouble(dados[4])));
+                else if(dados[0].equals("ACADEMIA")) {
+                    servicos.add(new Academia(Integer.parseInt(dados[1]), dados[2], Integer.parseInt(dados[3]), Double.parseDouble(dados[4])));
                 }
             }
             br.close();
-
         } catch(IOException e) {
             System.out.println("Erro ao ler arquivo.");
         }
     
     }
     
-  
+    //SALVAR
     public void salvarDados(String arquivo) {
         try {
             PrintWriter pw = new PrintWriter(new FileWriter(arquivo));
             for(Hospede h : hospedes) {
-                pw.println(h.getNome() + ";" + h.getIdade() + ";" + h.getCpf());
+                pw.println(h.getNome() + ";" + h.getIdade() + ";" + h.getCPF());
             }
 
             for(Reserva r : reservas) {
-                pw.println(r.getCodigo() + ";" + r.getHospedeResponsavel().getCpf() + ";" + r.getAcomodacao().getCodigo() + ";" + r.getQuantidadeHospedes() + ";" + r.getQuantidadeDias() + ";" + r.calcularPrecoTotal());
+                pw.println(r.getCodigoReserva() + ";" + r.getHospedeResponsavel().getCPF() + ";" + r.getAcomodacao().getCodigoResponsavel() + ";" + r.getQuantidadeHospedes() + ";" + r.getQuantidadeDias() + ";" + r.PrecoTotal());
             }
             pw.close();
-
         } catch(IOException e) {
             System.out.println("Erro ao salvar arquivo.");
         }
     }
 
+
+    //EXIBIR
+    public void exibirHospedes() {
+        for(Hospede h : hospedes) {
+            h.exibirInformacoes();
+            System.out.println();
+        }
+    }
+
+    public void exibirAcomodacoes() {
+        for(Acomodacao a : acomodacoes) {
+            a.exibirInformacoes();
+            System.out.println();
+        }
+    }
+
+    public void exibirServicos() {
+        for(Servico s : servicos) {
+            s.exibirInformacoes();
+            System.out.println();
+        }
+    }
+
+    public void exibirReservas() {
+        for(Reserva r : reservas) {
+            r.exibirInformacoes();
+            System.out.println();
+        }
+    }
+
+    //BUSCAR
+    public Hospede buscarHospede(String cpf) {
+    for(Hospede h : hospedes) {
+        if(h.getCPF().equals(cpf)) {
+            return h;
+        }
+    }
+    return null;
+    }
+
+    public Acomodacao buscarAcomodacao(int codigo) {
+        for(Acomodacao a : acomodacoes) {
+            if(a.getCodigo() == codigo) {
+                return a;
+            }
+        }
+        return null;
+    }
+
+    public Servico buscarServico(int codigo) {
+        for(Servico s : servicos) {
+            if(s.getCodigoServico() == codigo) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    public Reserva buscarReserva(int codigo) {
+        for(Reserva r : reservas) {
+            if(r.getCodigoDaReserva() == codigo) {
+                return r;
+            }
+        }
+        return null;
+    }
 }
