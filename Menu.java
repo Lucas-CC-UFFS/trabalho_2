@@ -8,7 +8,7 @@ public class Menu {
         Scanner sc = new Scanner(System.in);
         Pousada pousada = new Pousada();
 
-        int opcao;
+        int opcao = 999;
 
         while(opcao != 14){
             System.out.println("1 - Cadastrar hóspede");
@@ -31,25 +31,25 @@ public class Menu {
 
             switch(opcao){
                 case 1:
-                    cadastrarHospede(sc, pousada);
+                    //cadastrarHospede(sc, pousada);
                     break;
                 case 2:
-                    exibirHospede(sc, pousada);
+                    //exibirHospede(sc, pousada);
                     break;
                 case 3:
-                    exibirTodosHospedes(pousada);
+                    //exibirTodosHospedes(pousada);
                     break;
                 case 4:
-                    exibirAcomodacao(sc, pousada);
+                    //exibirAcomodacao(sc, pousada);
                     break;
                 case 5:
-                    exibirTodasAcomodacoes(pousada);
+                    //exibirTodasAcomodacoes(pousada);
                     break;
                 case 6:
-                    exibirServico(sc, pousada);
+                    //exibirServico(sc, pousada);
                     break;
                 case 7:
-                    exibirTodosServicos(pousada);
+                    //exibirTodosServicos(pousada);
                     break;
                 case 8:
                     System.out.println("Cadastrar reserva");

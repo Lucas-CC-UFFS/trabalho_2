@@ -19,7 +19,9 @@ public class Hospedes implements HospeDjInn{
     public void setCPF(String cpf) {this.CPF = cpf;}
 
     @Override
-    public String exibirInformacoes(){
-        return "ok";
+    public void exibirInformacoes(){
+        System.out.println("Nome: " + this.Nome);
+        System.out.println("Idade: " + this.Idade);
+        System.out.println("CPF: " + this.CPF);
     }
 }
