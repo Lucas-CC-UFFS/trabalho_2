@@ -23,5 +23,11 @@ public abstract class Servicos implements HospeDjInn {
         this.descricaoServico = descricaoServico;
     }
 
+    @Override
+    public void exibirInformacoes(){
+        System.out.println("Código: " + codigo);
+        System.out.println("Descrição: " + descricao);    
+    }
+
     public abstract double calculaValorServico();
 }
