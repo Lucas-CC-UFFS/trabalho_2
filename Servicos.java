@@ -18,7 +18,7 @@ public abstract class Servicos implements HospeDjInn {
         return descricaoServico;
     }
 
-    public Servico(int codigoServico, String descricaoServico){
+    public Servicos(int codigoServico, String descricaoServico){
         this.codigoServico = codigoServico;
         this.descricaoServico = descricaoServico;
     }

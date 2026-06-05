@@ -19,6 +19,12 @@ public class Chale extends Acomodacao{
         return (quant_dias * getValorDiaria()) + (taxaAquecimento * quant_dias) + taxaLimpeza;
     }
 
+    @Override
+    public String exibirInformacoes(){
+        return "ok";
+    }
+
+
     // SETTERS
     @Override
     public void setCodigo(int codigo){
