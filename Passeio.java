@@ -29,8 +29,4 @@ public class Passeio extends Servicos {
         return precoPasseio * qtdPessoas;
     }
 
-    @Override
-    public String exibirInformacoes(){
-        return "Ecoturismo e Aventura: Trilhas ecológicas guiadas, arvorismo, escalada estruturadas no próprio espaço da pousada. Por apenas R$" + precoPasseio + " por pessoa!";
-    }
 }

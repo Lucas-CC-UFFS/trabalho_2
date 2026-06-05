@@ -29,8 +29,4 @@ public class Academia extends Servicos {
         return precoAcademia * qtdDias;
     }
 
-    @Override
-    public String exibirInformacoes(){
-        return "Academia completa e ambiente amplo para se manter ativo por R$" + precoAcademia + " por dia!";
-    }
 }

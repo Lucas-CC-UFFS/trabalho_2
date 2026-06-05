@@ -5,7 +5,6 @@ public abstract class Acomodacao implements HospeDjInn{
     private double valorDiaria;
     
     //METODOS
-    public abstract void infoAcomodacao();
     public abstract double calculaDiaria(int quant_dias);
 
     // GETTERS

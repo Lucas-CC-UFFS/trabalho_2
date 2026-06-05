@@ -1,3 +1,3 @@
 public interface HospeDjInn {
-    String exibirInformacoes();
+    public void exibirInformacoes();
 }
