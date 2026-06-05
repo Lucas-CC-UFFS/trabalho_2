@@ -4,6 +4,11 @@ public class QuartoPadrao extends Acomodacao{
         setCapacidadeMax(2);
         setValorDiaria(150);
     }
+    public QuartoPadrao(int codigo, int capacidade, double diaria){
+        setCodigo(codigo);
+        setCapacidadeMax(capacidade);
+        setValorDiaria(diaria);
+    }
 
     //METODOS
     @Override

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Reserva {
+public class Reserva implements HospeDjInn{
     private int CodigoDaReserva;
     private Hospedes HospedeResponsavel;
     private Acomodacao Acomodacao;
@@ -17,7 +17,7 @@ public class Reserva {
         }
         return totalDiarias + precoServicos;
     }
-    public void infoAcomodacao(){
+    public void exibirInformacoes(){
         System.out.println("Código: " + this.CodigoDaReserva);
         System.out.println("Hospede responsável: " + this.HospedeResponsavel.getNome());
         System.out.println("Acomodação reservada: " + this.Acomodacao.getCodigo());

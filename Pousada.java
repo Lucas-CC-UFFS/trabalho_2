@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Pousada {
     private ArrayList<Hospedes> hospedes;
@@ -63,12 +64,12 @@ public class Pousada {
                 }
 
                 else if(dados[0].equals("CHALE")) {
-                    acomodacoes.add(new Chale(Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Double.parseDouble(dados[3]), Double.parseDouble(dados[4]), Double.parseDouble(dados[5])));
+                    acomodacoes.add(new Chale(Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Double.parseDouble(dados[3])));
                 }
 
                 else if(dados[0].equals("SUITE")) {
                     acomodacoes.add(
-                        new SuitePremium(Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Double.parseDouble(dados[3]), Double.parseDouble(dados[4])));
+                        new SuitePremium(Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Double.parseDouble(dados[3])));
                 }
 
                 else if(dados[0].equals("REFEICAO")) {
@@ -94,12 +95,12 @@ public class Pousada {
     public void salvarDados(String arquivo) {
         try {
             PrintWriter pw = new PrintWriter(new FileWriter(arquivo));
-            for(Hospede h : hospedes) {
+            for(Hospedes h : hospedes) {
                 pw.println(h.getNome() + ";" + h.getIdade() + ";" + h.getCPF());
             }
 
             for(Reserva r : reservas) {
-                pw.println(r.getCodigoReserva() + ";" + r.getHospedeResponsavel().getCPF() + ";" + r.getAcomodacao().getCodigoResponsavel() + ";" + r.getQuantidadeHospedes() + ";" + r.getQuantidadeDias() + ";" + r.PrecoTotal());
+                pw.println(r.getCodigoDaReserva() + ";" + r.getHospedeResponsavel().getCPF() + ";" + r.getAcomodacao().getCodigo() + ";" + r.getQuantidadeHospedes() + ";" + r.getQuantidadeDias() + ";" + r.PrecoTotal());
             }
             pw.close();
         } catch(IOException e) {
@@ -110,7 +111,7 @@ public class Pousada {
 
     //EXIBIR
     public void exibirHospedes() {
-        for(Hospede h : hospedes) {
+        for(Hospedes h : hospedes) {
             h.exibirInformacoes();
             System.out.println();
         }
@@ -124,7 +125,7 @@ public class Pousada {
     }
 
     public void exibirServicos() {
-        for(Servico s : servicos) {
+        for(Servicos s : servicos) {
             s.exibirInformacoes();
             System.out.println();
         }
@@ -138,8 +139,8 @@ public class Pousada {
     }
 
     //BUSCAR
-    public Hospede buscarHospede(String cpf) {
-    for(Hospede h : hospedes) {
+    public Hospedes buscarHospede(String cpf) {
+    for(Hospedes h : hospedes) {
         if(h.getCPF().equals(cpf)) {
             return h;
         }
@@ -156,8 +157,8 @@ public class Pousada {
         return null;
     }
 
-    public Servico buscarServico(int codigo) {
-        for(Servico s : servicos) {
+    public Servicos buscarServico(int codigo) {
+        for(Servicos s : servicos) {
             if(s.getCodigoServico() == codigo) {
                 return s;
             }

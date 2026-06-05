@@ -18,7 +18,7 @@ public class Academia extends Servicos {
         return qtdDias;
     }
 
-    public Academia(int codigoAcademia, String descricaoAcademia, double precoAcademia, int qtdDias){
+    public Academia(int codigoAcademia, String descricaoAcademia,int qtdDias, double precoAcademia){
         super(codigoAcademia, descricaoAcademia);
         this.precoAcademia = precoAcademia;
         this.qtdDias = qtdDias;

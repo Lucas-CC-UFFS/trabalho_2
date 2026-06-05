@@ -4,7 +4,11 @@ public class SuitePremium extends Acomodacao{
         setCapacidadeMax(4);
         setValorDiaria(350.00);
     }
-
+    public SuitePremium(int codigo, int capacidade, double diaria){
+        setCodigo(codigo);
+        setCapacidadeMax(capacidade);
+        setValorDiaria(diaria);
+    }
     //METODOS
     @Override
     public void exibirInformacoes(){

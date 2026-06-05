@@ -4,6 +4,11 @@ public class Chale extends Acomodacao{
         setCapacidadeMax(5);
         setValorDiaria(300);
     }
+    public Chale(int codigo, int capacidade, double diaria){
+        setCodigo(codigo);
+        setCapacidadeMax(capacidade);
+        setValorDiaria(diaria);
+    }
 
     //METODOS
     @Override
