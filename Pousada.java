@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Pousada {
-    private ArrayList<Hospede> hospedes;
+    private ArrayList<Hospedes> hospedes;
     private ArrayList<Acomodacao> acomodacoes;
     private ArrayList<Servicos> servicos;
     private ArrayList<Reserva> reservas;
@@ -13,7 +13,7 @@ public class Pousada {
         reservas = new ArrayList<>();
     }
 
-    public ArrayList<Hospede> getHospedes() {
+    public ArrayList<Hospedes> getHospedes() {
         return hospedes;
     }
 
@@ -29,7 +29,7 @@ public class Pousada {
         return reservas;
     }
 
-    public void adicionarHospede(Hospede h) {
+    public void adicionarHospede(Hospedes h) {
         hospedes.add(h);
     }
 
