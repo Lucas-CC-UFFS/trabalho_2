@@ -2,13 +2,163 @@ import java.util.Scanner;
 
 public class Menu {
 
-    //implementar funções
-    
+    public static void cadastrarHospede(Scanner sc, Pousada p){
+        System.out.println("Nome: ");
+        String nome = sc.nextLine();
+
+        System.out.println("Idade: ");
+        int idade = sc.nextInt();
+        sc.nextLine();
+
+        System.out.println("CPF: ");
+        String cpf = sc.nextLine();
+
+        Hospedes h = new Hospedes(nome, idade, cpf);
+        p.adicionarHospede(h);
+    }
+
+    public static void exibirHospede(Scanner sc, Pousada p){
+        System.out.println("CPF: ");
+        String cpf = sc.nextLine();
+
+        Hospedes h = p.buscarHospede(cpf);
+        if(h != null){
+            h.exibirInformacoes();
+        } else {
+            System.out.println("Hóspede não econtrado.");
+        }
+    }
+
+    public static void exibirTodosHospedes(Pousada p){
+        p.exibirHospedes();
+    }
+
+    public static void exibirAcomodacao(Scanner sc, Pousada p){
+        System.out.println("Código da Acomodação: ");
+        int codigo = sc.nextInt();
+        Acomodacao a = p.buscarAcomodacao(codigo);
+        if(a != null){
+            a.exibirInformacoes();
+        } else {
+            System.out.println("Acomodação não econtrada.");
+        }
+    }
+
+    public static void exibirTodasAcomodacoes(Pousada p){
+        p.exibirAcomodacoes();
+    }
+
+    public static void exibirServico(Scanner sc, Pousada p){
+        System.out.println("Código do Serviço: ");
+        int codigo = sc.nextInt();
+        sc.nextLine();
+        Servicos s = p.buscarServico(codigo);
+        if(s != null){
+            s.exibirInformacoes();
+        } else {
+            System.out.println("Serviço não econtrado.");
+        }
+    }
+
+    public static void exibirTodosServicos(Pousada p){
+        p.exibirServicos();
+    }
+
+    public static void exibirReserva(Scanner sc, Pousada p){
+        System.out.println("Código da Reserva: ");
+        int codigo = sc.nextInt();
+        sc.nextLine();
+        Reserva r = p.buscarReserva(codigo);
+        if(r != null){
+            r.exibirInformacoes();
+        } else {
+            System.out.println("Reserva não econtrada.");
+        }
+    }
+
+    public static void exibirTodasReservas(Pousada p){
+        p.exibirReservas();
+    }
+
+    public static void exibirExtrato(Scanner sc, Pousada p){
+        System.out.println("Código da Reserva: ");
+        int codigo = sc.nextInt();
+        sc.nextLine();
+        Reserva r = p.buscarReserva(codigo);
+        if(r != null){
+            r.exibirInformacoes();
+            System.out.println("Valor total: R$" + r.PrecoTotal());
+        } else {
+            System.out.println("Reserva não econtrada.");
+        }
+    }
+
+    public static void salvarArquivo(Pousada p){
+        p.salvarDados("dados.txt");
+    }
+
+    public static void cadastrarReserva(Scanner sc, Pousada p){
+        System.out.println("Código da Reserva: ");
+        int codigo = sc.nextInt();
+
+        System.out.println("CPF do hóspede: ");
+        sc.nextLine();
+        String cpf = sc.nextLine();
+        Hospedes h = p.buscarHospede(cpf);
+        if(h == null){
+            System.out.println("Hóspede não econtrado.");
+            return;
+        }
+
+        System.out.println("Código da Acomodação: ");
+        int codigoA = sc.nextInt();
+        Acomodacao a = p.buscarAcomodacao(codigoA);
+        if(a == null){
+            System.out.println("Acomodação não econtrada.");
+            return;
+        }
+
+        System.out.println("Quantidade de hóspedes: ");
+        int qtdHospedes = sc.nextInt();
+        if(qtdHospedes > a.getCapacidadeMax()){
+            System.out.println("Capacidade excedida.");
+            return;
+        }
+
+        System.out.println("Quantidade de dias: ");
+        int qtdDias = sc.nextInt();
+
+        Reserva r = new Reserva(codigo, h, a, qtdHospedes, qtdDias);
+
+        p.adicionarReserva(r);
+
+    }
+
+    public static void adicionarServicoReserva(Scanner sc, Pousada p){
+        System.out.println("Código da Reserva: ");
+        int codigo = sc.nextInt();
+        Reserva r = p.buscarReserva(codigo);
+        if(r == null){
+            System.out.println("Reserva não econtrada.");
+            return;
+        }
+
+        System.out.println("Código do Serviço: ");
+        int codigoS = sc.nextInt();
+        Servicos s = p.buscarServico(codigoS);
+        if(s == null){
+            System.out.println("Serviço não econtrado.");
+            return;
+        }
+
+        r.setListaServicos(s);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Pousada pousada = new Pousada();
-
-        int opcao = 999;
+        pousada.carregarDados("dadosHospeDjInn.txt");
+        int opcao = -1;
 
         while(opcao != 14){
             System.out.println("1 - Cadastrar hóspede");
@@ -31,43 +181,49 @@ public class Menu {
 
             switch(opcao){
                 case 1:
-                    //cadastrarHospede(sc, pousada);
+                    cadastrarHospede(sc, pousada);
                     break;
                 case 2:
-                    //exibirHospede(sc, pousada);
+                    exibirHospede(sc, pousada);
                     break;
                 case 3:
-                    //exibirTodosHospedes(pousada);
+                    exibirTodosHospedes(pousada);
                     break;
                 case 4:
-                    //exibirAcomodacao(sc, pousada);
+                    exibirAcomodacao(sc, pousada);
                     break;
                 case 5:
-                    //exibirTodasAcomodacoes(pousada);
+                    exibirTodasAcomodacoes(pousada);
                     break;
                 case 6:
-                    //exibirServico(sc, pousada);
+                    exibirServico(sc, pousada);
                     break;
                 case 7:
-                    //exibirTodosServicos(pousada);
+                    exibirTodosServicos(pousada);
                     break;
                 case 8:
                     System.out.println("Cadastrar reserva");
+                    cadastrarReserva(sc, pousada);
                     break;
                 case 9:
                     System.out.println("Adicionar serviço à reserva");
+                    adicionarServicoReserva(sc, pousada);
                     break;
                 case 10:
                     System.out.println("Exibir reserva");
+                    exibirReserva(sc, pousada);
                     break;
                 case 11:
                     System.out.println("Exibir todas as reservas");
+                    exibirTodasReservas(pousada);
                     break;
                 case 12:
                     System.out.println("Exibir extrato");
+                    exibirExtrato(sc, pousada);
                     break;
                 case 13:
                     System.out.println("Salvar arquivo");
+                    salvarArquivo(pousada);
                     break;
                 case 14:
                     System.out.println("Sistema encerrado.");

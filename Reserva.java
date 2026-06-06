@@ -1,74 +1,81 @@
 import java.util.ArrayList;
 
 public class Reserva implements HospeDjInn{
-    private int CodigoDaReserva;
-    private Hospedes HospedeResponsavel;
-    private Acomodacao Acomodacao;
-    private int QuantidadeHospedes;
-    private int QuantidadeDias;
-    private ArrayList<Servicos> ListaDeServicos = new ArrayList<>();
+    private int codigoDaReserva;
+    private Hospedes hospedeResponsavel;
+    private Acomodacao acomodacao;
+    private int quantidadeHospedes;
+    private int quantidadeDias;
+    private ArrayList<Servicos> listaDeServicos = new ArrayList<>();
 
     //METODOS
     public double PrecoTotal(){
-        double totalDiarias = this.Acomodacao.calculaDiaria(QuantidadeDias);
+        double totalDiarias = this.acomodacao.calculaDiaria(quantidadeDias);
         double precoServicos = 0;
-        for (int i = 0; i < ListaDeServicos.size(); i++){
-            precoServicos += ListaDeServicos.get(i).calculaValorServico();
+        for (int i = 0; i < listaDeServicos.size(); i++){
+            precoServicos += listaDeServicos.get(i).calculaValorServico();
         }
         return totalDiarias + precoServicos;
     }
     public void exibirInformacoes(){
-        System.out.println("Código: " + this.CodigoDaReserva);
-        System.out.println("Hospede responsável: " + this.HospedeResponsavel.getNome());
-        System.out.println("Acomodação reservada: " + this.Acomodacao.getCodigo());
-        System.out.println("Quantidade de hospedes: " + this.QuantidadeHospedes);
-        System.out.println("Quantidade de dias: " + this.QuantidadeDias);
+        System.out.println("Código: " + this.codigoDaReserva);
+        System.out.println("Hospede responsável: " + this.hospedeResponsavel.getNome());
+        System.out.println("Acomodação reservada: " + this.acomodacao.getCodigo());
+        System.out.println("Quantidade de hospedes: " + this.quantidadeHospedes);
+        System.out.println("Quantidade de dias: " + this.quantidadeDias);
         System.out.println("Serviços solicitados: " + this.getListaServicos());
     }
 
-
+    //CONSTRUTOR
+    public Reserva(int codigoDaReserva, Hospedes hospedeResposavel, Acomodacao acomodacao, int quantidadeHospedes, int quantidadeDias){
+        this.codigoDaReserva = codigoDaReserva;
+        this.hospedeResponsavel =hospedeResposavel;
+        this.acomodacao = acomodacao;
+        this.quantidadeHospedes = quantidadeHospedes;
+        this.quantidadeDias = quantidadeDias;
+    }
     //GETTERS
     public int getCodigoDaReserva(){
-        return this.CodigoDaReserva;
+        return this.codigoDaReserva;
     }
     public Hospedes getHospedeResponsavel(){
-        return this.HospedeResponsavel;
+        return this.hospedeResponsavel;
     }
     public Acomodacao getAcomodacao(){
-        return this.Acomodacao;
+        return this.acomodacao;
     }
     public int getQuantidadeHospedes(){
-        return this.QuantidadeHospedes;
+        return this.quantidadeHospedes;
     }
     public int getQuantidadeDias(){
-        return this.QuantidadeDias;
+        return this.quantidadeDias;
     }
     public String getListaServicos(){
         String servicos = "";
-        for (int i = 0; i < ListaDeServicos.size(); i++){
-            servicos += ListaDeServicos.get(i).getDescricaoServico() + "\n";
+        for (int i = 0; i < listaDeServicos.size(); i++){
+            servicos += listaDeServicos.get(i).getDescricaoServico() + "\n";
         }
         return servicos;
     }
 
     // SETTERS
      public void setCodigoDaReserva(int CodigoDaReserva){
-        this.CodigoDaReserva = CodigoDaReserva;
+        this.codigoDaReserva = CodigoDaReserva;
     }
     public void setHospedeResponsavel(Hospedes pessoa){
-        this.HospedeResponsavel = pessoa;
+        this.hospedeResponsavel = pessoa;
     }
     public void setAcomodacao(Acomodacao quarto){
-        this.Acomodacao = quarto;
+        this.acomodacao = quarto;
     }
     public void setQuantidadeHospedes(int numeroHospedes){
-        this.QuantidadeHospedes = numeroHospedes;
+        this.quantidadeHospedes = numeroHospedes;
     }
     public void setQuantidadeDias(int quantDias){
-        this.QuantidadeDias = quantDias;
+        this.quantidadeDias = quantDias;
     }
     public void setListaServicos(Servicos servico){
-        this.ListaDeServicos.add(servico);
+        this.listaDeServicos.add(servico);
     }
 
 }

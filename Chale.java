@@ -1,6 +1,6 @@
 public class Chale extends Acomodacao{
     //CONSTRUTOR
-    public Chale(){
+    public Chale(){ // n precisa
         setCapacidadeMax(5);
         setValorDiaria(300);
     }
