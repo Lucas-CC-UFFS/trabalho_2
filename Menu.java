@@ -18,10 +18,10 @@ public class Menu {
         Hospedes h = new Hospedes(nome, idade, cpf);
         p.adicionarHospede(h);
 
-        System.out.println("Digite 1 se deseja fazer reserva ou 0 para concluir");
-        int reserva = sc.nextInt();
-        if (reserva == 1) {
-            cadastrarReserva(sc, p);
+        System.out.println("Deseja cadastrar reserva? (s/n).");
+        String op = sc.nextLine(); 
+        if("s".equals(op)){
+            cadastrarReserva(sc, p, h);
         }
         else return;
     }
@@ -123,6 +123,34 @@ public class Menu {
             }
             return;
         }
+
+        System.out.println("Código da Acomodação: ");
+        int codigoA = sc.nextInt();
+        Acomodacao a = p.buscarAcomodacao(codigoA);
+        if(a == null){
+            System.out.println("Acomodação não econtrada.");
+            return;
+        }
+
+        System.out.println("Quantidade de hóspedes: ");
+        int qtdHospedes = sc.nextInt();
+        if(qtdHospedes > a.getCapacidadeMax()){
+            System.out.println("Capacidade excedida.");
+            return;
+        }
+
+        System.out.println("Quantidade de dias: ");
+        int qtdDias = sc.nextInt();
+
+        Reserva r = new Reserva(codigo, h, a, qtdHospedes, qtdDias);
+
+        p.adicionarReserva(r);
+
+    }
+
+    public static void cadastrarReserva(Scanner sc, Pousada p, Hospedes h) {
+        System.out.println("Código da Reserva: ");
+        int codigo = sc.nextInt();
 
         System.out.println("Código da Acomodação: ");
         int codigoA = sc.nextInt();
