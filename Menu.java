@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.crypto.AEADBadTagException;
+
 public class Menu {
 
     public static void cadastrarHospede(Scanner sc, Pousada p){
@@ -114,6 +116,11 @@ public class Menu {
         Hospedes h = p.buscarHospede(cpf);
         if(h == null){
             System.out.println("Hóspede não econtrado.");
+            System.out.println("Deseja cadastrar-se? (s/n).");
+            String op = sc.nextLine(); 
+            if("s".equals(op)){
+                cadastrarHospede(sc, p);
+            }
             return;
         }
 
@@ -210,27 +217,21 @@ public class Menu {
                     exibirTodosServicos(pousada);
                     break;
                 case 8:
-                    System.out.println("Cadastrar reserva");
                     cadastrarReserva(sc, pousada);
                     break;
                 case 9:
-                    System.out.println("Adicionar serviço à reserva");
                     adicionarServicoReserva(sc, pousada);
                     break;
                 case 10:
-                    System.out.println("Exibir reserva");
                     exibirReserva(sc, pousada);
                     break;
                 case 11:
-                    System.out.println("Exibir todas as reservas");
                     exibirTodasReservas(pousada);
                     break;
                 case 12:
-                    System.out.println("Exibir extrato");
                     exibirExtrato(sc, pousada);
                     break;
                 case 13:
-                    System.out.println("Salvar arquivo");
                     salvarArquivo(pousada);
                     break;
                 case 14:
