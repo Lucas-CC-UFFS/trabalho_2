@@ -4,26 +4,14 @@ import javax.crypto.AEADBadTagException;
 
 public class Menu {
 
-    public static void cadastrarHospede(Scanner sc, Pousada p){
-        System.out.println("Nome: ");
-        String nome = sc.nextLine();
-
-        System.out.println("Idade: ");
-        int idade = sc.nextInt();
-        sc.nextLine();
-
-        System.out.println("CPF: ");
-        String cpf = sc.nextLine();
-        
-        Hospedes h = new Hospedes(nome, idade, cpf);
-        p.adicionarHospede(h);
+public static void cadastrarHospede(Scanner sc, Pousada p){
+        Hospedes h = criaHospede(sc, p);
 
         System.out.println("Deseja cadastrar reserva? (s/n).");
         String op = sc.nextLine(); 
         if("s".equals(op)){
             cadastrarReserva(sc, p, h);
         }
-        else return;
     }
 
     public static void exibirHospede(Scanner sc, Pousada p){
@@ -106,29 +94,30 @@ public class Menu {
         p.salvarDados("dados.txt");
     }
 
-    public static void cadastrarReserva(Scanner sc, Pousada p){
+public static void cadastrarReserva(Scanner sc, Pousada p){
         System.out.println("Código da Reserva: ");
         int codigo = sc.nextInt();
 
         System.out.println("CPF do hóspede: ");
         sc.nextLine();
         String cpf = sc.nextLine();
+        
         Hospedes h = p.buscarHospede(cpf);
+        
         if(h == null){
-            System.out.println("Hóspede não econtrado.");
+            System.out.println("Hóspede não encontrado.");
             System.out.println("Deseja cadastrar-se? (s/n).");
             String op = sc.nextLine(); 
             if("s".equals(op)){
-                cadastrarHospede(sc, p);
-            }
-            return;
+                h = criaHospede(sc, p); 
+            } else return;
         }
 
         System.out.println("Código da Acomodação: ");
         int codigoA = sc.nextInt();
         Acomodacao a = p.buscarAcomodacao(codigoA);
         if(a == null){
-            System.out.println("Acomodação não econtrada.");
+            System.out.println("Acomodação não encontrada.");
             return;
         }
 
@@ -143,9 +132,7 @@ public class Menu {
         int qtdDias = sc.nextInt();
 
         Reserva r = new Reserva(codigo, h, a, qtdHospedes, qtdDias);
-
         p.adicionarReserva(r);
-
     }
 
     public static void cadastrarReserva(Scanner sc, Pousada p, Hospedes h) {
@@ -195,6 +182,25 @@ public class Menu {
 
         r.setListaServicos(s);
     }
+
+    //teste
+    public static Hospedes criaHospede(Scanner sc, Pousada p){
+        System.out.println("Nome: ");
+        String nome = sc.nextLine();
+
+        System.out.println("Idade: ");
+        int idade = sc.nextInt();
+        sc.nextLine();
+
+        System.out.println("CPF: ");
+        String cpf = sc.nextLine();
+        
+        Hospedes h = new Hospedes(nome, idade, cpf);
+        p.adicionarHospede(h);
+        
+        return h;
+    }
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
