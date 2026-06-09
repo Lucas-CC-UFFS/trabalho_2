@@ -12,9 +12,16 @@ public class Menu {
 
         System.out.println("CPF: ");
         String cpf = sc.nextLine();
-
+        
         Hospedes h = new Hospedes(nome, idade, cpf);
         p.adicionarHospede(h);
+
+        System.out.println("Digite 1 se deseja fazer reserva ou 0 para concluir");
+        int reserva = sc.nextInt();
+        if (reserva == 1) {
+            cadastrarReserva(sc, p);
+        }
+        else return;
     }
 
     public static void exibirHospede(Scanner sc, Pousada p){
