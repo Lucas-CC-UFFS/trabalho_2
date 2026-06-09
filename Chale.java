@@ -1,9 +1,5 @@
 public class Chale extends Acomodacao{
     //CONSTRUTOR
-    public Chale(){ // n precisa
-        setCapacidadeMax(5);
-        setValorDiaria(300);
-    }
     public Chale(int codigo, int capacidade, double diaria){
         setCodigo(codigo);
         setCapacidadeMax(capacidade);
@@ -13,7 +9,14 @@ public class Chale extends Acomodacao{
     //METODOS
     @Override
     public void exibirInformacoes(){
-        System.out.println("Código: " + getCodigo());
+        if (getCodigo()/1000 == 1) {
+            System.out.println("Quarto Padrão");
+        }else if (getCodigo()/1000 == 2) {
+            System.out.println("Chalé");
+        }else{
+            System.out.println("Suite Premium");
+        }
+        System.out.println("Código da acomodação: " + getCodigo());
         System.out.println("Capacidade Máxima: " + getCapacidadeMax());
         System.out.println("Valor da Diária: " + getValorDiaria());
     }

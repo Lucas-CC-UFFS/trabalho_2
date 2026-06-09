@@ -114,8 +114,8 @@ public class Pousada {
 
     public void exibirAcomodacoes() {
         for(Acomodacao a : acomodacoes) {
-            a.exibirInformacoes();
             System.out.println();
+            a.exibirInformacoes();
         }
     }
 

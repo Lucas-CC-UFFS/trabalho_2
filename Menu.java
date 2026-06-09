@@ -161,6 +161,7 @@ public class Menu {
         int opcao = -1;
 
         while(opcao != 14){
+            System.out.println();
             System.out.println("1 - Cadastrar hóspede");
             System.out.println("2 - Exibir dados de um hóspede");
             System.out.println("3 - Exibir dados de todos os hóspedes");

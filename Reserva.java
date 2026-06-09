@@ -7,6 +7,15 @@ public class Reserva implements HospeDjInn{
     private int quantidadeHospedes;
     private int quantidadeDias;
     private ArrayList<Servicos> listaDeServicos = new ArrayList<>();
+    
+    //CONSTRUTOR
+    public Reserva(int codigoDaReserva, Hospedes hospedeResposavel, Acomodacao acomodacao, int quantidadeHospedes, int quantidadeDias){
+        this.codigoDaReserva = codigoDaReserva;
+        this.hospedeResponsavel =hospedeResposavel;
+        this.acomodacao = acomodacao;
+        this.quantidadeHospedes = quantidadeHospedes;
+        this.quantidadeDias = quantidadeDias;
+    }
 
     //METODOS
     public double PrecoTotal(){
@@ -26,14 +35,6 @@ public class Reserva implements HospeDjInn{
         System.out.println("Serviços solicitados: " + this.getListaServicos());
     }
 
-    //CONSTRUTOR
-    public Reserva(int codigoDaReserva, Hospedes hospedeResposavel, Acomodacao acomodacao, int quantidadeHospedes, int quantidadeDias){
-        this.codigoDaReserva = codigoDaReserva;
-        this.hospedeResponsavel =hospedeResposavel;
-        this.acomodacao = acomodacao;
-        this.quantidadeHospedes = quantidadeHospedes;
-        this.quantidadeDias = quantidadeDias;
-    }
     //GETTERS
     public int getCodigoDaReserva(){
         return this.codigoDaReserva;
