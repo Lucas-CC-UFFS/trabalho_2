@@ -91,13 +91,14 @@ public class Pousada {
         try {
             PrintWriter pw = new PrintWriter(new FileWriter(arquivo));
             for(Hospedes h : hospedes) {
-                pw.println(h.getNome() + ";" + h.getIdade() + ";" + h.getCPF());
+                pw.println("Hóspede: " + h.getNome() + "; Idade: " + h.getIdade() + "; CPF:" + h.getCPF());
             }
 
             for(Reserva r : reservas) {
-                pw.println(r.getCodigoDaReserva() + ";" + r.getHospedeResponsavel().getCPF() + ";" + r.getAcomodacao().getCodigo() + ";" + r.getQuantidadeHospedes() + ";" + r.getQuantidadeDias() + ";" + r.PrecoTotal());
+                pw.println("Código da reserva: " + r.getCodigoDaReserva() + "; CPF Hóspede: " + r.getHospedeResponsavel().getCPF() + "; Código da acomodação: " + r.getAcomodacao().getCodigo() + "; Quantidade de Hóspedes: " + r.getQuantidadeHospedes() + "; Quantidade de dias: " + r.getQuantidadeDias() + "; Preço total: " + r.PrecoTotal());
             }
             pw.close();
+            System.out.println("Arquivo salvo.");
         } catch(IOException e) {
             System.out.println("Erro ao salvar arquivo.");
         }

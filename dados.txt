@@ -1,0 +1,2 @@
+Hóspede: bre; Idade: 5; CPF:55
+Código da reserva: 1; CPF Hóspede: 55; Código da acomodação: 2201; Quantidade de Hóspedes: 1; Quantidade de dias: 1; Preço total: 328.98
