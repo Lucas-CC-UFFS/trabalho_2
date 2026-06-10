@@ -11,7 +11,7 @@ public static void cadastrarHospede(Scanner sc, Pousada p){
         String op = sc.nextLine(); 
         if("s".equals(op)){
             cadastrarReserva(sc, p, h);
-        }
+        }else return;
     }
 
     public static void exibirHospede(Scanner sc, Pousada p){
@@ -130,9 +130,15 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
 
         System.out.println("Quantidade de dias: ");
         int qtdDias = sc.nextInt();
-
+        sc.nextLine();
         Reserva r = new Reserva(codigo, h, a, qtdHospedes, qtdDias);
         p.adicionarReserva(r);
+
+        System.out.println("Deseja adicionar serviços? (s/n).");
+        String op = sc.nextLine(); 
+        if("s".equals(op)){
+            adicionarServicoReserva(sc, p);
+        }else return;
     }
 
     public static void cadastrarReserva(Scanner sc, Pousada p, Hospedes h) {
@@ -156,10 +162,16 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
 
         System.out.println("Quantidade de dias: ");
         int qtdDias = sc.nextInt();
-
+        sc.nextLine();
         Reserva r = new Reserva(codigo, h, a, qtdHospedes, qtdDias);
-
         p.adicionarReserva(r);
+
+        
+        System.out.println("Deseja adicionar serviços? (s/n).");
+        String op = sc.nextLine(); 
+        if("s".equals(op)){
+            adicionarServicoReserva(sc, p);
+        }else return;
 
     }
 
@@ -172,19 +184,35 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
             return;
         }
 
+        System.out.println("Digite o código do serviço desejado:\n1- Café da manhã\n2- Ecoturismo\n3- Academia completa");
+        String op = sc.nextLine();
+            while (op!= "n") {
         System.out.println("Código do Serviço: ");
         int codigoS = sc.nextInt();
+        sc.nextLine();
         Servicos s = p.buscarServico(codigoS);
         if(s == null){
             System.out.println("Serviço não econtrado.");
             return;
         }
-
+        if (codigoS == 1) {
+            System.out.println("Serviço: Café da manhã\nCadastrado com sucesso!");
+        }else if (codigoS == 2) {
+            System.out.println("Serviço: Passeio ecoturismo\nCadastrado com sucesso!");
+        }else{
+            System.out.println("Serviço: Academia completa\nCadastrado com sucesso!");
+        }
+        System.out.println("Deseja cadastrar outro serviço? (s/n)");
+        op = sc.nextLine();
+        if ("n".equals(op)) {
+            r.setListaServicos(s);
+            return;
+        }
         r.setListaServicos(s);
+        }
     }
 
-    //teste
-    public static Hospedes criaHospede(Scanner sc, Pousada p){
+   public static Hospedes criaHospede(Scanner sc, Pousada p){
         System.out.println("Nome: ");
         String nome = sc.nextLine();
 
