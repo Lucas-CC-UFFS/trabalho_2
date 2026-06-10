@@ -78,6 +78,18 @@ public class Pousada {
                 else if(dados[0].equals("ACADEMIA")) {
                     servicos.add(new Academia(Integer.parseInt(dados[1]), dados[2], Integer.parseInt(dados[3]), Double.parseDouble(dados[4])));
                 }
+
+                else if(dados[0].equals("HOSPEDE")) {
+                    hospedes.add(new Hospedes(dados[1], Integer.parseInt(dados[2]), dados[3]));
+                }
+
+                else if(dados[0].equals("RESERVA")) {
+                    Hospedes h = buscarHospede(dados[2]);
+                    Acomodacao a = buscarAcomodacao(Integer.parseInt(dados[3]));
+                    if(h != null && a != null){
+                        reservas.add(new Reserva(Integer.parseInt(dados[1]), h, a, Integer.parseInt(dados[4]), Integer.parseInt(dados[5])));
+                    }
+                }
             }
             br.close();
         } catch(IOException e) {
@@ -91,11 +103,11 @@ public class Pousada {
         try {
             PrintWriter pw = new PrintWriter(new FileWriter(arquivo));
             for(Hospedes h : hospedes) {
-                pw.println("Hóspede: " + h.getNome() + "; Idade: " + h.getIdade() + "; CPF:" + h.getCPF());
+                pw.println("HOSPEDE;" + h.getNome() + ";" + h.getIdade() + ";" + h.getCPF());
             }
 
             for(Reserva r : reservas) {
-                pw.println("Código da reserva: " + r.getCodigoDaReserva() + "; CPF Hóspede: " + r.getHospedeResponsavel().getCPF() + "; Código da acomodação: " + r.getAcomodacao().getCodigo() + "; Quantidade de Hóspedes: " + r.getQuantidadeHospedes() + "; Quantidade de dias: " + r.getQuantidadeDias() + "; Preço total: " + r.PrecoTotal());
+                pw.println("RESERVA;" + r.getCodigoDaReserva() + ";" + r.getHospedeResponsavel().getCPF() + ";" + r.getAcomodacao().getCodigo() + ";" + r.getQuantidadeHospedes() + ";" + r.getQuantidadeDias() + ";" + r.PrecoTotal());
             }
             pw.close();
             System.out.println("Arquivo salvo.");
