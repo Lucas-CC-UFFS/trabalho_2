@@ -1,3 +1,5 @@
-Hóspede: Brenda Furacão; Idade: 19; CPF:123.123.123.12
-Hóspede: Lucas; Idade: 18; CPF:123.123.456.12
-Código da reserva: 123; CPF Hóspede: 123.123.123.12; Código da acomodação: 2201; Quantidade de Hóspedes: 1; Quantidade de dias: 3; Preço total: 954.96
+HOSPEDE;kk;5;44
+HOSPEDE;k;11;5
+HOSPEDE;k;4;4
+RESERVA;1;44;2201;2;2;641.97
+RESERVA;1;44;2201;4;5;1580.94

@@ -1,12 +1,10 @@
 import java.util.Scanner;
-
 import javax.crypto.AEADBadTagException;
 
 public class Menu {
 
 public static void cadastrarHospede(Scanner sc, Pousada p){
         Hospedes h = criaHospede(sc, p);
-
         System.out.println("Deseja cadastrar reserva? (s/n).");
         String op = sc.nextLine(); 
         if("s".equals(op)){
@@ -97,6 +95,10 @@ public static void cadastrarHospede(Scanner sc, Pousada p){
 public static void cadastrarReserva(Scanner sc, Pousada p){
         System.out.println("Código da Reserva: ");
         int codigo = sc.nextInt();
+        if(p.buscarReserva(codigo) != null){
+            System.out.println("Código já utilizado!");
+            return;
+        }
 
         System.out.println("CPF do hóspede: ");
         sc.nextLine();
@@ -138,6 +140,10 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
     public static void cadastrarReserva(Scanner sc, Pousada p, Hospedes h) {
         System.out.println("Código da Reserva: ");
         int codigo = sc.nextInt();
+        if(p.buscarReserva(codigo) != null){
+            System.out.println("Código já utilizado!");
+            return;
+        }
 
         System.out.println("Código da Acomodação: ");
         int codigoA = sc.nextInt();
@@ -185,6 +191,15 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
 
     //teste
     public static Hospedes criaHospede(Scanner sc, Pousada p){
+        System.out.println("CPF: ");
+        String cpf = sc.nextLine();
+        Hospedes existente = p.buscarHospede(cpf);
+        if(existente != null){
+            System.out.println("\nHóspede já cadastrado!");
+            existente.exibirInformacoes();
+            return existente;
+        }
+
         System.out.println("Nome: ");
         String nome = sc.nextLine();
 
@@ -192,12 +207,8 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
         int idade = sc.nextInt();
         sc.nextLine();
 
-        System.out.println("CPF: ");
-        String cpf = sc.nextLine();
-        
         Hospedes h = new Hospedes(nome, idade, cpf);
         p.adicionarHospede(h);
-        
         return h;
     }
 
@@ -206,10 +217,11 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
         Scanner sc = new Scanner(System.in);
         Pousada pousada = new Pousada();
         pousada.carregarDados("dadosHospeDjInn.txt");
+        pousada.carregarDados("dados.txt");
         int opcao = -1;
 
         while(opcao != 14){
-            System.out.println();
+            System.out.println("-------------------MENU------------------");
             System.out.println("1 - Cadastrar hóspede");
             System.out.println("2 - Exibir dados de um hóspede");
             System.out.println("3 - Exibir dados de todos os hóspedes");
@@ -269,6 +281,7 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
                     salvarArquivo(pousada);
                     break;
                 case 14:
+                    pousada.salvarDados("dados.txt");
                     System.out.println("Sistema encerrado.");
                     break;
                 default:
