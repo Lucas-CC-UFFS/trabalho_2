@@ -1,4 +1,4 @@
-public abstract class Servicos implements HospeDjInn {
+public abstract class Servicos implements Informacoes {
     private int codigoServico;
     private String descricaoServico;
 

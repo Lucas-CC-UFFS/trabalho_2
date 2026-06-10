@@ -1,4 +1,4 @@
-public abstract class Acomodacao implements HospeDjInn{
+public abstract class Acomodacao implements Informacoes{
     //ATRIBUTOS
     private int codigo; // 1 - Suite Premium | 2 - Chalé | 3 - Quarto Padrão
     private int capacidadeMax;

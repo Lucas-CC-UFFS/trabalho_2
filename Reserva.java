@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Reserva implements HospeDjInn{
+public class Reserva implements Informacoes{
     private int codigoDaReserva;
     private Hospedes hospedeResponsavel;
     private Acomodacao acomodacao;

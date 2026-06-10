@@ -1,4 +1,4 @@
-public class Hospedes implements HospeDjInn{
+public class Hospedes implements Informacoes{
     private String Nome;
     private int Idade;
     private String CPF;
