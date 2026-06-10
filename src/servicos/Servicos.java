@@ -1,3 +1,6 @@
+package servicos;
+import interfaces.*;
+
 public abstract class Servicos implements Informacoes {
     private int codigoServico;
     private String descricaoServico;

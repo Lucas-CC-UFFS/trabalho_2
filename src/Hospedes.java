@@ -1,3 +1,5 @@
+import interfaces.*;
+
 public class Hospedes implements Informacoes{
     private String Nome;
     private int Idade;

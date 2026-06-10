@@ -1,4 +1,7 @@
+import interfaces.*;
 import java.util.ArrayList;
+import acomodacoes.*;
+import servicos.*;
 
 public class Reserva implements Informacoes{
     private int codigoDaReserva;

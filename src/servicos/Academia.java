@@ -1,3 +1,5 @@
+package servicos;
+
 public class Academia extends Servicos {
     private double precoAcademia;
     private int qtdDias;

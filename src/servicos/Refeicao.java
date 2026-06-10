@@ -1,3 +1,5 @@
+package servicos;
+
 public class Refeicao extends Servicos {
     private double precoRefeicao;
 

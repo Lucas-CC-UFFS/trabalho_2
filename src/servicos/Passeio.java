@@ -1,3 +1,5 @@
+package servicos;
+
 public class Passeio extends Servicos {
     private double precoPasseio;
     private int qtdPessoas;

@@ -1,15 +1,16 @@
-public class QuartoPadrao extends Acomodacao{
-    //CONSTUTOR
-    public QuartoPadrao(){
-        setCapacidadeMax(2);
-        setValorDiaria(150);
+package acomodacoes;
+
+public class SuitePremium extends Acomodacao{
+    //CONSTRUTOR
+    public SuitePremium(){
+        setCapacidadeMax(4);
+        setValorDiaria(350.00);
     }
-    public QuartoPadrao(int codigo, int capacidade, double diaria){
+    public SuitePremium(int codigo, int capacidade, double diaria){
         setCodigo(codigo);
         setCapacidadeMax(capacidade);
         setValorDiaria(diaria);
     }
-
     //METODOS
     @Override
     public void exibirInformacoes(){
@@ -24,17 +25,19 @@ public class QuartoPadrao extends Acomodacao{
         System.out.println("Capacidade Máxima: " + getCapacidadeMax());
         System.out.println("Valor da Diária: " + getValorDiaria());
     }
+
     @Override    
     public double calculaDiaria(int quant_dias){
-        return quant_dias * getValorDiaria();
+        double taxaAquecimento = 12.99;
+        double taxaLimpeza = 15.99;
+        return (quant_dias * getValorDiaria()) + (taxaAquecimento * quant_dias) + taxaLimpeza;
     }
 
     // SETTERS
     @Override
     public void setCodigo(int codigo){
-        String quarto = "3" + codigo;
+        String quarto = "1" + codigo;
         int numCodigo = Integer.parseInt(quarto);
         super.setCodigo(numCodigo);
     }
 }
-

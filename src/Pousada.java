@@ -1,4 +1,8 @@
+
 import java.util.ArrayList;
+import acomodacoes.*;
+import servicos.*;
+
 import java.io.*;
 
 public class Pousada {
