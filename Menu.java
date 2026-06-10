@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import javax.crypto.AEADBadTagException;
+import java.util.InputMismatchException;
 
 public class Menu {
 
@@ -29,9 +30,31 @@ public static void cadastrarHospede(Scanner sc, Pousada p){
     }
 
     public static void exibirAcomodacao(Scanner sc, Pousada p){
-        System.out.println("Código da Acomodação: ");
-        int codigo = sc.nextInt();
-        Acomodacao a = p.buscarAcomodacao(codigo);
+        System.out.println("Código da Acomodação:\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
+        int codigo = 0;
+        boolean validacao = false;
+        
+        while (!validacao) {    
+        try {
+            codigo = sc.nextInt();
+            validacao = true;
+        }catch(InputMismatchException e){
+            System.out.println("Erro: Opção inválida.\nPor favor, digite apenas o número da respectiva acomodação"+
+                                "\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
+            sc.nextLine();
+            }
+        }
+        int codigoBusca = 0;
+        if (codigo == 1) {
+            codigoBusca = 1301;
+        }else if (codigo == 2) {
+            codigoBusca = 2201;
+        }else if (codigo == 3) {
+            codigoBusca = 3101;
+        }else{
+            System.out.println("Opção inválida");
+        }
+        Acomodacao a = p.buscarAcomodacao(codigoBusca);
         if(a != null){
             a.exibirInformacoes();
         } else {
@@ -44,7 +67,7 @@ public static void cadastrarHospede(Scanner sc, Pousada p){
     }
 
     public static void exibirServico(Scanner sc, Pousada p){
-        System.out.println("Código do Serviço: ");
+        System.out.println("Código do Serviço: \n1- Refeição\n2- Passeio\n3- Academia");
         int codigo = sc.nextInt();
         sc.nextLine();
         Servicos s = p.buscarServico(codigo);
