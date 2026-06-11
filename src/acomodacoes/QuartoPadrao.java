@@ -2,10 +2,6 @@ package acomodacoes;
 
 public class QuartoPadrao extends Acomodacao{
     //CONSTUTOR
-    public QuartoPadrao(){
-        setCapacidadeMax(2);
-        setValorDiaria(150);
-    }
     public QuartoPadrao(int codigo, int capacidade, double diaria){
         setCodigo(codigo);
         setCapacidadeMax(capacidade);
@@ -15,9 +11,9 @@ public class QuartoPadrao extends Acomodacao{
     //METODOS
     @Override
     public void exibirInformacoes(){
-        if (getCodigo()/1000 == 1) {
+        if (getCodigo()/100 == 1) {
             System.out.println("Quarto Padrão");
-        }else if (getCodigo()/1000 == 2) {
+        }else if (getCodigo()/100 == 2) {
             System.out.println("Chalé");
         }else{
             System.out.println("Suite Premium");
@@ -34,7 +30,7 @@ public class QuartoPadrao extends Acomodacao{
     // SETTERS
     @Override
     public void setCodigo(int codigo){
-        String quarto = "3" + codigo;
+        String quarto = "1" + codigo;
         int numCodigo = Integer.parseInt(quarto);
         super.setCodigo(numCodigo);
     }

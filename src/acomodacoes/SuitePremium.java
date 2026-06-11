@@ -2,10 +2,6 @@ package acomodacoes;
 
 public class SuitePremium extends Acomodacao{
     //CONSTRUTOR
-    public SuitePremium(){
-        setCapacidadeMax(4);
-        setValorDiaria(350.00);
-    }
     public SuitePremium(int codigo, int capacidade, double diaria){
         setCodigo(codigo);
         setCapacidadeMax(capacidade);
@@ -14,9 +10,9 @@ public class SuitePremium extends Acomodacao{
     //METODOS
     @Override
     public void exibirInformacoes(){
-        if (getCodigo()/1000 == 1) {
+        if (getCodigo()/100 == 1) {
             System.out.println("Quarto Padrão");
-        }else if (getCodigo()/1000 == 2) {
+        }else if (getCodigo()/100 == 2) {
             System.out.println("Chalé");
         }else{
             System.out.println("Suite Premium");
@@ -36,7 +32,7 @@ public class SuitePremium extends Acomodacao{
     // SETTERS
     @Override
     public void setCodigo(int codigo){
-        String quarto = "1" + codigo;
+        String quarto = "3" + codigo;
         int numCodigo = Integer.parseInt(quarto);
         super.setCodigo(numCodigo);
     }
