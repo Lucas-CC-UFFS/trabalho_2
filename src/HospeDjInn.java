@@ -247,23 +247,36 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
     }
 
     public static Hospedes criaHospede(Scanner sc, Pousada p){
-        System.out.println("CPF: ");
-        String cpf = sc.nextLine();
-        Hospedes existente = p.buscarHospede(cpf);
-        if(existente != null){
-            System.out.println("\nHóspede já cadastrado!");
-            existente.exibirInformacoes();
-            return existente;
-        }
+        String cpfLimpo = "";
+        Hospedes h = null;
 
+        while (true) {
+            System.out.println("CPF: ");
+            String cpf = sc.nextLine();
+            try{
+                cpfLimpo = Hospedes.validarCPF(cpf);
+                Hospedes existente = p.buscarHospede(cpfLimpo);
+                if(existente != null){
+                    System.out.println("\nHóspede já cadastrado!");
+                    existente.exibirInformacoes();
+                    return existente;
+                }
+                break;
+            }catch(IllegalArgumentException e){
+                System.out.println("Erro: " + e.getMessage());
+                System.out.println("Digite novamente. ");
+            }
+        }
         System.out.println("Nome: ");
         String nome = sc.nextLine();
 
         System.out.println("Idade: ");
         int idade = sc.nextInt();
         sc.nextLine();
-
-        Hospedes h = new Hospedes(nome, idade, cpf);
+    
+        h = new Hospedes(nome, idade, cpfLimpo);
+        System.out.println("Hospede cadastrado com sucesso!");
+            
         p.adicionarHospede(h);
         return h;
     }

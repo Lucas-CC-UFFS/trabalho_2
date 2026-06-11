@@ -107,11 +107,11 @@ public class Pousada {
         try {
             PrintWriter pw = new PrintWriter(new FileWriter(arquivo));
             for(Hospedes h : hospedes) {
-                pw.println("HOSPEDE;" + h.getNome() + ";" + h.getIdade() + ";" + h.getCPF());
+                pw.println("HOSPEDE;" + h.getNome() + ";" + h.getIdade() + ";" + h.getCPF().replaceAll("\\D", ""));
             }
 
             for(Reserva r : reservas) {
-                pw.println("RESERVA;" + r.getCodigoDaReserva() + ";" + r.getHospedeResponsavel().getCPF() + ";" + r.getAcomodacao().getCodigo() + ";" + r.getQuantidadeHospedes() + ";" + r.getQuantidadeDias() + ";" + r.PrecoTotal());
+                pw.println("RESERVA;" + r.getCodigoDaReserva() + ";" + r.getHospedeResponsavel().getCPF().replaceAll("\\D", "") + ";" + r.getAcomodacao().getCodigo() + ";" + r.getQuantidadeHospedes() + ";" + r.getQuantidadeDias() + ";" + r.PrecoTotal());
             }
             pw.close();
             System.out.println("Arquivo salvo.");
@@ -152,8 +152,9 @@ public class Pousada {
 
     //BUSCAR
     public Hospedes buscarHospede(String cpf) {
-    for(Hospedes h : hospedes) {
-        if(h.getCPF().equals(cpf)) {
+        cpf.replaceFirst("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
+        for(Hospedes h : hospedes) {
+            if(h.getCPF().equals(cpf)) {
             return h;
         }
     }
