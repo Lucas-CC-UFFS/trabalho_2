@@ -1,5 +1,3 @@
-
-
 import java.util.Scanner;
 //import javax.crypto.AEADBadTagException;
 
@@ -222,6 +220,7 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
         }
 
         System.out.println("Digite o código do serviço desejado:\n1- Café da manhã\n2- Ecoturismo\n3- Academia completa");
+        
         String op = sc.nextLine();
             while (op!= "n") {
         System.out.println("Código do Serviço: ");
