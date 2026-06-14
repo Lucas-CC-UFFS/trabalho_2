@@ -10,9 +10,9 @@ public abstract class Acomodacao implements Informacoes{
     //METODOS
     @Override
     public void exibirInformacoes(){
-        if (getCodigo()/100 == 1) {
+        if (getCodigo()/1000 == 1) {
             System.out.println("Quarto Padrão");
-        }else if (getCodigo()/100 == 2) {
+        }else if (getCodigo()/1000 == 2) {
             System.out.println("Chalé");
         }else{
             System.out.println("Suite Premium");
