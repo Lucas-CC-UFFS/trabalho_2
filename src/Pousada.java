@@ -111,7 +111,7 @@ public class Pousada {
             }
 
             for(Reserva r : reservas) {
-                pw.println("RESERVA;" + r.getCodigoDaReserva() + ";" + r.getHospedeResponsavel().getCPF().replaceAll("\\D", "") + ";" + r.getAcomodacao().getCodigo() + ";" + r.getQuantidadeHospedes() + ";" + r.getQuantidadeDias() + ";" + r.PrecoTotal());
+                pw.println("RESERVA;" + r.getCodigoDaReserva() + ";" + r.getHospedeResponsavel().getCPF().replaceAll("\\D", "") + ";" + r.getAcomodacao().getCodigo() + ";" + r.getQuantidadeHospedes() + ";" + r.getQuantidadeDias() + ";" + r.precoTotal());
             }
             pw.close();
             System.out.println("Arquivo salvo.");
@@ -123,6 +123,10 @@ public class Pousada {
 
     //EXIBIR
     public void exibirHospedes() {
+        if (hospedes.isEmpty()) {
+        System.out.println("Nenhum hóspede cadastrado.");
+        return;
+    }
         for(Hospedes h : hospedes) {
             h.exibirInformacoes();
             System.out.println();
@@ -144,6 +148,10 @@ public class Pousada {
     }
 
     public void exibirReservas() {
+         if (reservas.isEmpty()) {
+            System.out.println("Nenhuma reserva cadastrada.");
+            return;
+        }
         for(Reserva r : reservas) {
             r.exibirInformacoes();
             System.out.println();

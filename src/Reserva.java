@@ -21,7 +21,7 @@ public class Reserva implements Informacoes{
     }
 
     //METODOS
-    public double PrecoTotal(){
+    public double precoTotal(){
         double totalDiarias = this.acomodacao.calculaDiaria(quantidadeDias);
         double precoServicos = 0;
         for (int i = 0; i < listaDeServicos.size(); i++){
