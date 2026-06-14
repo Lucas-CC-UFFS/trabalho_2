@@ -11,6 +11,9 @@ public class HospeDjInn {
 
 public static void cadastrarHospede(Scanner sc, Pousada p){
         Hospedes h = criaHospede(sc, p);
+        if (h == null) {
+            return;
+        }
         System.out.println("Deseja cadastrar reserva? (s/n).");
         String op = sc.nextLine(); 
         if("s".equals(op)){
@@ -110,7 +113,7 @@ public static void cadastrarHospede(Scanner sc, Pousada p){
         Reserva r = p.buscarReserva(codigo);
         if(r != null){
             r.exibirInformacoes();
-            System.out.println("Valor total: R$" + r.PrecoTotal());
+            System.out.println("Valor total: R$" + r.precoTotal());
         } else {
             System.out.println("Reserva não econtrada.");
         }
@@ -273,6 +276,10 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
         System.out.println("Idade: ");
         int idade = sc.nextInt();
         sc.nextLine();
+        if (idade < 18) {
+            System.out.println("Cadastro cancelado: o hóspede deve ser maior de idade.");
+            return null;   
+        }
     
         h = new Hospedes(nome, idade, cpfLimpo);
         System.out.println("Hospede cadastrado com sucesso!");

@@ -9,7 +9,6 @@ public abstract class Acomodacao implements Informacoes{
 
     //METODOS
     public abstract double calculaDiaria(int quant_dias);
-    public abstract void exibirInformacoes();
 
     // GETTERS
     public int getCodigo() {return this.codigo;}
