@@ -10,6 +10,6 @@ SUITE;301;2;350
 SUITE;302;2;350
 SUITE;303;4;400
 
-REFEICAO;1;Café da manhã;50
+REFEICAO;1;Café da manhã;30
 PASSEIO;2;Passeio Ecoturismo;10;30
 ACADEMIA;3;Academia Completa;3;100

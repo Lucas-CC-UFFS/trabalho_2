@@ -36,30 +36,10 @@ public static void cadastrarHospede(Scanner sc, Pousada p){
     }
 
     public static void exibirAcomodacao(Scanner sc, Pousada p){
-        System.out.println("Código da Acomodação:\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
-        int codigo = 0;
-        boolean validacao = false;
-        
-        while (!validacao) {    
-        try {
-            codigo = sc.nextInt();
-            validacao = true;
-        }catch(InputMismatchException e){
-            System.out.println("Erro: Opção inválida.\nPor favor, digite apenas o número da respectiva acomodação"+
-                                "\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
-            sc.nextLine();
-            }
-        }
-        int codigoBusca = 0;
-        if (codigo == 1) {
-            codigoBusca = 1301;
-        }else if (codigo == 2) {
-            codigoBusca = 2201;
-        }else if (codigo == 3) {
-            codigoBusca = 3101;
-        }else{
-            System.out.println("Opção inválida");
-        }
+        System.out.println("Código da Acomodação:");
+        int codigoBusca = sc.nextInt();
+        sc.nextLine();
+       
         Acomodacao a = p.buscarAcomodacao(codigoBusca);
         if(a != null){
             a.exibirInformacoes();
@@ -132,7 +112,6 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
         System.out.println("CPF do hóspede: ");
         sc.nextLine();
         String cpf = sc.nextLine();
-        //String cpfLimpo = cpf.replaceAll("\\D", "");
         Hospedes h = p.buscarHospede(cpf);
         
         if(h == null){
@@ -144,13 +123,13 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
             } else return;
         }
 
-        System.out.println("Código da Acomodação:\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
-        int codigoAcomodacao = 0;
+        System.out.println("Tipos de Acomodações:\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
+        int tipoAcomodacao = 0;
         boolean validacao = false;
         
         while (!validacao) {    
         try {
-            codigoAcomodacao = sc.nextInt();
+            tipoAcomodacao = sc.nextInt();
             validacao = true;
         }catch(InputMismatchException e){
             System.out.println("Erro: Opção inválida.\nPor favor, digite apenas o número da respectiva acomodação"+
@@ -158,21 +137,32 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
             sc.nextLine();
             }
         }
-        int codigoBusca = 0;
-        if (codigoAcomodacao == 1) {
-            codigoBusca = 1301;
-        }else if (codigoAcomodacao == 2) {
-            codigoBusca = 2201;
-        }else if (codigoAcomodacao == 3) {
-            codigoBusca = 3101;
+        if (tipoAcomodacao == 1) {
+            System.out.println("Quartos Padrão:");
+            System.out.println("1101");
+            System.out.println("1102");
+            System.out.println("1103");
+            System.out.println("1104");
+        }else if (tipoAcomodacao == 2) {
+            System.out.println("Chalés:");
+            System.out.println("2201");
+            System.out.println("2202");
+        }else if (tipoAcomodacao == 3) {
+            System.out.println("Suítes Premium:");
+            System.out.println("3301");
+            System.out.println("3302");
+            System.out.println("3303");
         }else{
             System.out.println("Opção inválida");
         }
+
+        int codigoBusca = sc.nextInt();
         Acomodacao a = p.buscarAcomodacao(codigoBusca);
         if(a != null){
             a.exibirInformacoes();
         } else {
             System.out.println("Acomodação não econtrada.");
+            return;
         }
         System.out.println("Quantidade de hóspedes: ");
         int qtdHospedes = sc.nextInt();
@@ -202,13 +192,13 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
             return;
         }
 
-        System.out.println("Código da Acomodação:\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
-        int codigoAcomodacao = 0;
+         System.out.println("Tipos de Acomodações:\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
+        int tipoAcomodacao = 0;
         boolean validacao = false;
         
         while (!validacao) {    
         try {
-            codigoAcomodacao = sc.nextInt();
+            tipoAcomodacao = sc.nextInt();
             validacao = true;
         }catch(InputMismatchException e){
             System.out.println("Erro: Opção inválida.\nPor favor, digite apenas o número da respectiva acomodação"+
@@ -216,16 +206,26 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
             sc.nextLine();
             }
         }
-        int codigoBusca = 0;
-        if (codigoAcomodacao == 1) {
-            codigoBusca = 1301;
-        }else if (codigoAcomodacao == 2) {
-            codigoBusca = 2201;
-        }else if (codigoAcomodacao == 3) {
-            codigoBusca = 3101;
+        if (tipoAcomodacao == 1) {
+            System.out.println("Quartos Padrão:");
+            System.out.println("1101");
+            System.out.println("1102");
+            System.out.println("1103");
+            System.out.println("1104");
+        }else if (tipoAcomodacao == 2) {
+            System.out.println("Chalés:");
+            System.out.println("2201");
+            System.out.println("2202");
+        }else if (tipoAcomodacao == 3) {
+            System.out.println("Suítes Premium:");
+            System.out.println("3301");
+            System.out.println("3302");
+            System.out.println("3303");
         }else{
             System.out.println("Opção inválida");
         }
+
+        int codigoBusca = sc.nextInt();
         Acomodacao a = p.buscarAcomodacao(codigoBusca);
         if(a != null){
             a.exibirInformacoes();
@@ -266,30 +266,29 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
         System.out.println("Digite o código do serviço desejado:\n1- Café da manhã\n2- Ecoturismo\n3- Academia completa");
         
         String op = sc.nextLine();
-            while (op!= "n") {
-        System.out.println("Código do Serviço: ");
-        int codigoS = sc.nextInt();
-        sc.nextLine();
-        Servicos s = p.buscarServico(codigoS);
-        if(s == null){
-            System.out.println("Serviço não econtrado.");
-            return;
-        }
-        if (codigoS == 1) {
-            System.out.println("Serviço: Café da manhã\nCadastrado com sucesso!");
-        }else if (codigoS == 2) {
-            System.out.println("Serviço: Passeio ecoturismo\nCadastrado com sucesso!");
-        }else{
-            System.out.println("Serviço: Academia completa\nCadastrado com sucesso!");
-        }
-        System.out.println("Deseja cadastrar outro serviço? (s/n)");
-        op = sc.nextLine();
-        if ("n".equals(op)) {
+        if ("s".equals(op)) {
+            System.out.println("Código do Serviço: ");
+            int codigoS = sc.nextInt();
+            sc.nextLine();
+            Servicos s = p.buscarServico(codigoS);
+            if(s == null){
+                System.out.println("Serviço não econtrado.");
+                return;
+            }
+            if (codigoS == 1) {
+                System.out.println("Serviço: Café da manhã\nCadastrado com sucesso!");
+            }else if (codigoS == 2) {
+                System.out.println("Serviço: Passeio ecoturismo\nCadastrado com sucesso!");
+            }else{
+                System.out.println("Serviço: Academia completa\nCadastrado com sucesso!");
+            }
+            System.out.println("Deseja cadastrar outro serviço? (s/n)");
+            op = sc.nextLine();   
+        } else {
             r.setListaServicos(s);
             return;
         }
         r.setListaServicos(s);
-        }
     }
 
     public static Hospedes criaHospede(Scanner sc, Pousada p){
@@ -319,8 +318,8 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
         System.out.println("Idade: ");
         int idade = sc.nextInt();
         sc.nextLine();
-        if (idade < 18) {
-            System.out.println("Cadastro cancelado: o hóspede deve ser maior de idade.");
+        if (idade < 18 || idade > 120) {
+            System.out.println("Idade inválida");
             return null;   
         }
     
