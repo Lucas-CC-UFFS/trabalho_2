@@ -134,8 +134,8 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
         System.out.println("CPF do hóspede: ");
         sc.nextLine();
         String cpf = sc.nextLine();
-        String cpfLimpo = cpf.replaceAll("\\D", "");
-        Hospedes h = p.buscarHospede(cpfLimpo);
+        //String cpfLimpo = cpf.replaceAll("\\D", "");
+        Hospedes h = p.buscarHospede(cpf);
         
         if(h == null){
             System.out.println("Hóspede não encontrado.");
