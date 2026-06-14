@@ -132,7 +132,7 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
         System.out.println("CPF do hóspede: ");
         sc.nextLine();
         String cpf = sc.nextLine();
-        
+        //String cpfLimpo = cpf.replaceAll("\\D", "");
         Hospedes h = p.buscarHospede(cpf);
         
         if(h == null){
@@ -144,14 +144,36 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
             } else return;
         }
 
-        System.out.println("Código da Acomodação: ");
-        int codigoA = sc.nextInt();
-        Acomodacao a = p.buscarAcomodacao(codigoA);
-        if(a == null){
-            System.out.println("Acomodação não encontrada.");
-            return;
+        System.out.println("Código da Acomodação:\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
+        int codigoAcomodacao = 0;
+        boolean validacao = false;
+        
+        while (!validacao) {    
+        try {
+            codigoAcomodacao = sc.nextInt();
+            validacao = true;
+        }catch(InputMismatchException e){
+            System.out.println("Erro: Opção inválida.\nPor favor, digite apenas o número da respectiva acomodação"+
+                                "\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
+            sc.nextLine();
+            }
         }
-
+        int codigoBusca = 0;
+        if (codigoAcomodacao == 1) {
+            codigoBusca = 1301;
+        }else if (codigoAcomodacao == 2) {
+            codigoBusca = 2201;
+        }else if (codigoAcomodacao == 3) {
+            codigoBusca = 3101;
+        }else{
+            System.out.println("Opção inválida");
+        }
+        Acomodacao a = p.buscarAcomodacao(codigoBusca);
+        if(a != null){
+            a.exibirInformacoes();
+        } else {
+            System.out.println("Acomodação não econtrada.");
+        }
         System.out.println("Quantidade de hóspedes: ");
         int qtdHospedes = sc.nextInt();
         if(qtdHospedes > a.getCapacidadeMax()){
@@ -180,14 +202,36 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
             return;
         }
 
-        System.out.println("Código da Acomodação: ");
-        int codigoA = sc.nextInt();
-        Acomodacao a = p.buscarAcomodacao(codigoA);
-        if(a == null){
-            System.out.println("Acomodação não econtrada.");
-            return;
+        System.out.println("Código da Acomodação:\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
+        int codigoAcomodacao = 0;
+        boolean validacao = false;
+        
+        while (!validacao) {    
+        try {
+            codigoAcomodacao = sc.nextInt();
+            validacao = true;
+        }catch(InputMismatchException e){
+            System.out.println("Erro: Opção inválida.\nPor favor, digite apenas o número da respectiva acomodação"+
+                                "\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
+            sc.nextLine();
+            }
         }
-
+        int codigoBusca = 0;
+        if (codigoAcomodacao == 1) {
+            codigoBusca = 1301;
+        }else if (codigoAcomodacao == 2) {
+            codigoBusca = 2201;
+        }else if (codigoAcomodacao == 3) {
+            codigoBusca = 3101;
+        }else{
+            System.out.println("Opção inválida");
+        }
+        Acomodacao a = p.buscarAcomodacao(codigoBusca);
+        if(a != null){
+            a.exibirInformacoes();
+        } else {
+            System.out.println("Acomodação não econtrada.");
+        }
         System.out.println("Quantidade de hóspedes: ");
         int qtdHospedes = sc.nextInt();
         if(qtdHospedes > a.getCapacidadeMax()){

@@ -160,12 +160,12 @@ public class Pousada {
 
     //BUSCAR
     public Hospedes buscarHospede(String cpf) {
-        cpf.replaceFirst("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
+        String cpfBusca = cpf.replaceFirst("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
         for(Hospedes h : hospedes) {
-            if(h.getCPF().equals(cpf)) {
+            if(h.getCPF().equals(cpfBusca)) {
             return h;
+            }
         }
-    }
     return null;
     }
 
