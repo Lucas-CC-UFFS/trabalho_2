@@ -61,6 +61,9 @@ public class Reserva implements Informacoes{
         }
         return servicos;
     }
+    public ArrayList<Servicos> getServicos(){
+        return listaDeServicos;
+    }
 
     // SETTERS
      public void setCodigoDaReserva(int CodigoDaReserva){

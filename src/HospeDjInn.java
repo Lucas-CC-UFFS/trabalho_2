@@ -268,31 +268,44 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
         }
 
         System.out.println("Digite o código do serviço desejado:\n1- Café da manhã\n2- Ecoturismo\n3- Academia completa");
-        
         String op = sc.nextLine();
-         while (!"n".equals(op)) {
-        System.out.println("Código do Serviço: ");
-        int codigoS = sc.nextInt();
-        sc.nextLine();
-        Servicos s = p.buscarServico(codigoS);
-        if(s == null){
-            System.out.println("Serviço não econtrado.");
-            return;
-        }
-        if (codigoS == 1) {
-            System.out.println("Serviço: Café da manhã\nCadastrado com sucesso!");
-        }else if (codigoS == 2) {
-            System.out.println("Serviço: Passeio ecoturismo\nCadastrado com sucesso!");
-        }else{
-            System.out.println("Serviço: Academia completa\nCadastrado com sucesso!");
-        }
-        System.out.println("Deseja cadastrar outro serviço? (s/n)");
-        op = sc.nextLine();
-        if ("n".equals(op)) {
-            r.setListaServicos(s);
-            return;
-        }
-        r.setListaServicos(s);
+
+        while (!"n".equals(op)) {
+            System.out.println("Código do Serviço: ");
+            int codigoS = sc.nextInt();
+            sc.nextLine();
+            Servicos s = p.buscarServico(codigoS);
+            if(s == null){
+                System.out.println("Serviço não econtrado.");
+                return;
+            }
+
+            boolean jaExiste = false;
+            for(Servicos servico : r.getServicos()){
+                if(servico.getCodigoServico() == s.getCodigoServico()){
+                    jaExiste = true;
+                    break;
+                }
+            }
+
+            if(jaExiste){
+                System.out.println("Esse serviço já foi cadastrado.");
+            } else {
+                r.setListaServicos(s);
+                if (codigoS == 1) {
+                    System.out.println("Serviço: Café da manhã\nCadastrado com sucesso!");
+                }else if (codigoS == 2) {
+                    System.out.println("Serviço: Passeio ecoturismo\nCadastrado com sucesso!");
+                }else{
+                    System.out.println("Serviço: Academia completa\nCadastrado com sucesso!");
+                }
+            }
+            System.out.println("Deseja cadastrar outro serviço? (s/n)");
+            op = sc.nextLine();
+            
+            if ("n".equals(op)) {
+                return;
+            }
         }
     }
 
