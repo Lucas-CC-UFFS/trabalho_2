@@ -131,16 +131,12 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
             } else return;
         }
 
-                //teste
-
         for (Reserva reservaExistente : p.getReservas()) {
             if (reservaExistente.getHospedeResponsavel().getCPF().equals(h.getCPF())) {
                 System.out.println("O hospede já possui uma acomodação reservada");
                 return;
             }
         }
-
-        //fim teste
 
         System.out.println("Tipos de Acomodações:\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium");
         int tipoAcomodacao = 0;
@@ -206,8 +202,6 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
     }
 
     public static void cadastrarReserva(Scanner sc, Pousada p, Hospedes h) {
-        //teste
-
         for (Reserva reservaExistente : p.getReservas()) {
             if (reservaExistente.getHospedeResponsavel().getCPF().equals(h.getCPF())) {
                 System.out.println("O hospede já possui uma acomodação reservada");
@@ -215,7 +209,6 @@ public static void cadastrarReserva(Scanner sc, Pousada p){
             }
         }
 
-        //fim teste
         System.out.println("Código da Reserva: ");
         int codigo = sc.nextInt();
         if(p.buscarReserva(codigo) != null){
