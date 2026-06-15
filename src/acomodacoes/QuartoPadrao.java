@@ -10,10 +10,10 @@ public class QuartoPadrao extends Acomodacao{
 
     //METODOS
 
-    @Override    
-    public double calculaDiaria(int quant_dias){
-        return quant_dias * getValorDiaria();
-    }
+//    @Override    
+//    public double calculaDiaria(int quant_dias){
+//        return quant_dias * getValorDiaria();
+//    }
 
     // SETTERS
     @Override

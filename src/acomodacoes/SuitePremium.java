@@ -8,12 +8,12 @@ public class SuitePremium extends Acomodacao{
         setValorDiaria(diaria);
     }
     //METODOS
-    @Override    
-    public double calculaDiaria(int quant_dias){
-        double taxaAquecimento = 12.99;
-        double taxaLimpeza = 15.99;
-        return (quant_dias * getValorDiaria()) + (taxaAquecimento * quant_dias) + taxaLimpeza;
-    }
+//    @Override    
+//    public double calculaDiaria(int quant_dias){
+//        double taxaAquecimento = 12.99;
+//        double taxaLimpeza = 15.99;
+//        return (quant_dias * getValorDiaria()) + (taxaAquecimento * quant_dias) + taxaLimpeza;
+//    }
 
     // SETTERS
     @Override
