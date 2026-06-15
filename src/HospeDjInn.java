@@ -36,14 +36,22 @@ public static void cadastrarHospede(Scanner sc, Pousada p){
     }
 
     public static void exibirAcomodacao(Scanner sc, Pousada p){
-        System.out.println("Código da Acomodação:");
+        System.out.println("Tipos de Acomodações:\n1- Quarto Padrão\n2- Chalé\n3- Suite Premium" + 
+                            "Digite a opção que deseja visualizar: ");
         int codigoBusca = sc.nextInt();
         sc.nextLine();
-       
+        if (codigoBusca == 1) {
+            codigoBusca = 1101;
+        }else if (codigoBusca == 2) {
+            codigoBusca = 2201;
+        }else if (codigoBusca == 3) {
+            codigoBusca = 3301;
+        }
         Acomodacao a = p.buscarAcomodacao(codigoBusca);
         if(a != null){
             a.exibirInformacoes();
-        } else {
+        }        
+        else{
             System.out.println("Acomodação não econtrada.");
         }
     }

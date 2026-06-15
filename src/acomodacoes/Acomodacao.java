@@ -22,7 +22,23 @@ public abstract class Acomodacao implements Informacoes{
         System.out.println("Valor da Diária: " + getValorDiaria());
     }
 
-    public abstract double calculaDiaria(int quant_dias);
+    public double calculaDiaria(int quant_dias){
+        double taxaAquecimento = 12.99;
+        double taxaLimpeza = 15.99;
+        if (getCodigo()/1000 == 1) {
+            return quant_dias * getValorDiaria();
+        }else if (getCodigo()/1000 == 2) {
+            //System.out.println("Chalé");
+            return (quant_dias * getValorDiaria()) + (taxaAquecimento * quant_dias) + taxaLimpeza;
+        }else if (getCodigo()/1000 == 3) {
+            //System.out.println("Suite Premium");
+            return (quant_dias * getValorDiaria()) + (taxaAquecimento * quant_dias) + taxaLimpeza;   
+        }else{ 
+            //System.out.println("Não encontrado");
+            return 0;
+        }
+    
+    }
 
     // GETTERS
     public int getCodigo() {return this.codigo;}
