@@ -2,7 +2,7 @@ package servicos;
 
 public class Academia extends Servicos {
     private double precoAcademia;
-    private int qtdDias;
+    private int qtdPessoas;
 
     public void setPrecoAcademia(double precoAcademia){
         this.precoAcademia = precoAcademia;
@@ -12,23 +12,23 @@ public class Academia extends Servicos {
         return precoAcademia;
     }
 
-    public void setQtdDias(int qtdDias){
-        this.qtdDias = qtdDias;
+    public void setQtdPessoas(int qtdPessoas){
+        this.qtdPessoas = qtdPessoas;
     }
 
-    public int getQtdDias(){
-        return qtdDias;
+    public int getQtdPessoas(){
+        return qtdPessoas;
     }
 
-    public Academia(int codigoAcademia, String descricaoAcademia,int qtdDias, double precoAcademia){
+    public Academia(int codigoAcademia, String descricaoAcademia,int qtdPessoas, double precoAcademia){
         super(codigoAcademia, descricaoAcademia);
         this.precoAcademia = precoAcademia;
-        this.qtdDias = qtdDias;
+        this.qtdPessoas = qtdPessoas;
     }
 
     @Override
     public double calculaValorServico(){
-        return precoAcademia * qtdDias;
+        return precoAcademia * qtdPessoas;
     }
 
 }

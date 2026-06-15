@@ -24,8 +24,17 @@ public class Reserva implements Informacoes{
     public double precoTotal(){
         double totalDiarias = this.acomodacao.calculaDiaria(quantidadeDias);
         double precoServicos = 0;
-        for (int i = 0; i < listaDeServicos.size(); i++){
-            precoServicos += listaDeServicos.get(i).calculaValorServico();
+        for (Servicos s : listaDeServicos){
+            if(s instanceof Refeicao){
+                ((Refeicao)s).setQtdPessoas(quantidadeHospedes);
+            }
+            if(s instanceof Passeio){
+                ((Passeio)s).setQtdPessoas(quantidadeHospedes);
+            }
+            if(s instanceof Academia){
+                ((Academia)s).setQtdPessoas(quantidadeHospedes);
+            }
+            precoServicos += s.calculaValorServico();
         }
         return totalDiarias + precoServicos;
     }

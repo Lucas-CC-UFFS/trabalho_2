@@ -50,8 +50,7 @@ public static void cadastrarHospede(Scanner sc, Pousada p){
         Acomodacao a = p.buscarAcomodacao(codigoBusca);
         if(a != null){
             a.exibirInformacoes();
-        }        
-        else{
+        }else{
             System.out.println("Acomodação não econtrada.");
         }
     }
